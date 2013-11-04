@@ -1,0 +1,108 @@
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Business Unit</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.select :business_unit, options_for_select((@company.business_units << "Others"), @brand.business_unit), { :prompt => true }, { :class => "span4", :style => "width:308px;" } %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" id="other-business-unit" style="margin-left:0;display:none;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">&nbsp;</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= text_field_tag "other_business_unit", nil, :class => "text_field span4", :disabled => true, :placeholder => "Enter Business Unit" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Category</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.select :category, options_for_select((@company.categories << "Others"), @brand.category), { :prompt => true }, { :class => "span4", :style => "width:308px;" } %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" id="other-category" style="margin-left:0;display:none;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">&nbsp;</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= text_field_tag "other_category", nil, :class => "text_field span4", :disabled => true, :placeholder => "Enter Category" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Brand Name</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.text_field :name, :class => "validate[required] text_field span4" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Brand Lifecycle</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.select :lifecycle, options_for_select(Brand::LIFECYCLE, @brand.lifecycle), { :prompt => true }, :class => "validate[required] span4", :style => "width:308px;" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Brand Manager</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.text_field :brand_manager, :class => "validate[required] text_field span4" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Title</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.text_field :title, :class => "validate[required] text_field span4" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Email</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.email_field :email, :class => "validate[required,custom[email]] text_field span4" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div class="control-group" style="margin-left:0;">
+  <div class="control-label" style="font-size:13px;width:40%;">
+    <div style="padding-right:20px;">Contact Phone</div>
+  </div>
+  <div class="controls" style="font-size:13px;margin-left:0;width:60%;float:left;">
+    <%= f.text_field :contact_no, :class => "validate[required] text_field span4" %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div style="clear:both;height:20px;"></div>
+
+<div class="form-actions" align="center" style="padding:0;margin:0;border:none;background-color:#FFFFFF;font-size:13px;">
+  <button type="submit" name="commit" value="Save" class="btn btn-primary" style="font-size:13px;line-height:18px;outline:none;">
+    <i class="icon-save"> Save</i>
+  </button>
+  <%= link_to "<i class='icon-remove'> Cancel</i>".html_safe, client_brands_path, :class => "btn" %>
+</div>

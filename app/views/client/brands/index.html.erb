@@ -1,0 +1,65 @@
+<div class="hero-unit">
+  <ul class="nav nav-tabs">
+    <li><%= link_to "Company", root_path, :style => "outline:none;" %></li>
+    <li><%= link_to "User", client_company_user_path, :style => "outline:none;" %></li>
+    <li class="active"><%= link_to "Brand/Products", client_brands_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Vendors", client_vendors_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Assets", client_assets_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Settings", client_settings_path, :style => "outline:none;" %></li>
+    <p style="text-align:right;"><%= link_to "<i class='icon-plus'> New Brand</i>".html_safe, new_client_brand_path, :class => 'btn btn-mini btn-primary', :style => "outline:none;" %></p>
+  </ul>
+
+  <% if @brands.present? %>
+    <table class="table table-striped" id="client-brand-list">
+      <thead>
+        <tr>
+          <th style="cursor:pointer;">Brand Name</th>
+          <th style="cursor:pointer;">Business Unit</th>
+          <th style="cursor:pointer;">Category</th>
+          <th style="cursor:pointer;">Lifecycle</th>
+          <th style="cursor:pointer;">Brand Manager</th>
+          <th style="cursor:pointer;">Email</th>
+          <th style="cursor:pointer;">Contact Phone</th>
+          <th width="90">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @brands.each do |brand| %>
+          <tr>
+            <td><%= link_to brand.name, edit_client_brand_path(brand.id), :style => "outline: none;" %></td>
+            <td><%= brand.business_unit %></td>
+            <td><%= brand.category %></td>
+            <td><%= brand.lifecycle if brand.lifecycle.present? %></td>
+            <td><%= brand.brand_manager %></td>
+            <td><%= brand.email %></td>
+            <td><%= brand.contact_no %></td>
+            <td style="text-align:left;">
+              <div class="btn-group">
+                <a class="btn dropdown-toggle" style="outline:none;" data-toggle="dropdown" href="#"><i class="icon-cog"> Actions <span class="caret" style="margin-top:0;"></span></i></a>
+                <ul class="dropdown-menu" style="min-width:110px;padding:5px;">
+                  <li><%= link_to "<i class='icon-trash'> Delete</i>".html_safe, client_brand_path(brand), :method => :delete, :data => { :confirm => "Are you sure ?" }, :style => "outline:none;padding:1px 4px;font-size:13px;" %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="alert-info">
+      <strong>Sorry!</strong> There are no brands.
+    </div>
+  <% end %>
+</div>
+<style type="text/css">
+  .container-fluid {
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .container {
+    width:100%;
+  }
+  .pagination a {
+    line-height: 20px;
+  }
+</style>

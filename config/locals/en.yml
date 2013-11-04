@@ -1,0 +1,12 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  mongoid:
+    attributes:
+      scope_of_work_asset:
+        asset_id: "Similar assets"
+        company_asset_id: "Similar assets"
+
+      plan:
+        job_no: "Purchase Order Number"

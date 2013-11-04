@@ -1,0 +1,18 @@
+<div class="hero-unit">
+  <ul class="nav nav-tabs">
+    <li><%= link_to "Company", root_path, :style => "outline:none;" %></li>
+    <li><%= link_to "User", client_company_user_path, :style => "outline:none;" %></li>
+    <li class="active"><%= link_to "Brand/Products", client_brands_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Vendors", client_vendors_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Assets", client_assets_path, :style => "outline:none;" %></li>
+    <li><%= link_to "Settings", client_settings_path, :style => "outline:none;" %></li>
+  </ul>
+  <div style="font-size:16px;">
+    <%= form_for @brand, :url => client_brands_path(@brand), :html => { :id => "formID", :class => 'form-horizontal fs-docs' } do |f| %>
+      <br />
+      <div>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+      </div>
+    <% end %>
+  </div>
+</div>

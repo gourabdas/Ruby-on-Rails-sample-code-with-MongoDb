@@ -1,0 +1,26 @@
+defaults: &defaults
+  host: localhost
+  #allow_read_secondary: true
+  #slaves:
+  #   - host: 0.0.0.0
+  #     port: 0
+  #   - host: slave2.local
+  #     port: 0
+  #op_timeout: 0.5
+  #connect_timeout: 0.5
+development:
+  <<: *defaults
+   database: <%= ENV['DATABASE_NAME'] %>
+  identity_map_enabled: true
+  #op_timeout: 0.5
+  #connect_timeout: 0.5
+test:
+  <<: *defaults
+  database: <%= ENV['DATABASE_NAME'] %>
+
+# set these environment variables on your prod server
+production:
+  hosts: [["0.0.0.0", 0], ["0.0.0.0", 0]]
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
